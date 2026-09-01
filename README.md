@@ -48,7 +48,7 @@ The workflow generates:
 - Regression estimates with heteroskedasticity-robust inference
 - Model diagnostic tests
 - Residual analysis and specification checks
-- Publication-style figures
+- Research-quality figures
 
 ## Repository Structure
 
