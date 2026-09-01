@@ -61,10 +61,8 @@ macro-data-analysis-python/
 ├── requirements.txt
 
 ├── code/
-│   ├── 01_data_download.py
-│   ├── 02_data_cleaning.py
-│   ├── 03_regression_analysis.py
-│   └── 04_diagnostics.py
+│   ├── macro_regression_workflow.py
+│   └── diagnostic_workflow.py
 
 ├── data/
 │   └── README.md
@@ -73,8 +71,6 @@ macro-data-analysis-python/
 │   ├── figures/
 │   └── tables/
 
-└── replication/
-    └── run_all.py
 ```
 
 ## Computational Environment
@@ -90,10 +86,8 @@ macro-data-analysis-python/
 Run the workflow scripts sequentially to reproduce the generated tables, figures, and regression outputs.
 
 ```bash
-python code/01_data_download.py
-python code/02_data_cleaning.py
-python code/03_regression_analysis.py
-python code/04_diagnostics.py
+python code/macro_regression_workflow.py
+python code/diagnostic_workflow.py
 ```
 
 ## Research Skills Demonstrated
