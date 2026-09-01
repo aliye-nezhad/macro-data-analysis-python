@@ -6,7 +6,15 @@ This project implements a reproducible empirical workflow for analyzing macroeco
 
 ## Research Question
 
-How do macroeconomic conditions, represented by industrial production, monetary policy, and labor market conditions, relate within a regression framework?
+How are monetary policy conditions and real economic activity associated with fluctuations in macroeconomic performance?
+
+The analysis examines whether changes in monetary conditions and labor market dynamics are systematically associated with industrial production movements using a reproducible empirical framework.
+
+## Motivation
+
+Understanding the relationship between monetary conditions, labor markets, and real activity is central to empirical macroeconomics.
+
+This project implements a transparent workflow for macroeconomic data retrieval, preparation, estimation, and diagnostics using publicly available Federal Reserve data.
 
 ## Data
 
@@ -24,9 +32,9 @@ The workflow includes:
 - Ordinary Least Squares (OLS) regression estimation
 - Heteroskedasticity-robust standard errors (HC1)
 - Residual analysis
-- Model specification tests
-- Heteroskedasticity testing
-- Autocorrelation testing
+- Regression specification diagnostics
+- Heteroskedasticity diagnostics
+- Serial correlation diagnostics
 - Multicollinearity diagnostics
 - Hypothesis testing
 - Robustness comparisons
@@ -35,41 +43,66 @@ The workflow includes:
 
 The workflow generates:
 
-- Regression summaries
-- Descriptive statistics
-- Correlation matrices
-- Fitted values
-- Diagnostic test results
-- Regression figures
-- Residual analysis plots
+- Cleaned macroeconomic datasets
+- Summary statistics and correlation analysis
+- Regression estimates with heteroskedasticity-robust inference
+- Model diagnostic tests
+- Residual analysis and specification checks
+- Publication-style figures
 
 ## Repository Structure
 
-The repository will be organized as follows:
+The repository is organized as follows:
 
 ```text
 macro-data-analysis-python/
 
-├── code/
-│   ├── macro_regression_workflow.py
-│   └── diagnostic_workflow.py
-│
-├── outputs/
-│   ├── tables/
-│   └── figures/
-│
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+
+├── code/
+│   ├── 01_data_download.py
+│   ├── 02_data_cleaning.py
+│   ├── 03_regression_analysis.py
+│   └── 04_diagnostics.py
+
+├── data/
+│   └── README.md
+
+├── outputs/
+│   ├── figures/
+│   └── tables/
+
+└── replication/
+    └── run_all.py
 ```
 
-## Tools
+## Computational Environment
 
 - Python
-- pandas
-- statsmodels
-- Matplotlib
-- pandas-datareader
+- pandas for data manipulation and transformation
+- pandas-datareader for automated FRED data retrieval
+- statsmodels for econometric estimation and inference
+- Matplotlib for research visualization
 
 ## Reproducibility
 
-Run the baseline workflow first, followed by the diagnostic workflow, to reproduce the generated tables, figures, and regression outputs.
+Run the workflow scripts sequentially to reproduce the generated tables, figures, and regression outputs.
+
+```bash
+python code/01_data_download.py
+python code/02_data_cleaning.py
+python code/03_regression_analysis.py
+python code/04_diagnostics.py
+```
+
+## Research Skills Demonstrated
+
+This repository demonstrates:
+
+- Automated macroeconomic data acquisition
+- Data cleaning and transformation
+- Econometric estimation
+- Robust inference
+- Model diagnostics
+- Reproducible research workflows
