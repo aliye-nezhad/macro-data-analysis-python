@@ -47,16 +47,16 @@ The workflow generates:
 
 The repository will be organized as follows:
 
-
+```text
 macro-data-analysis-python/
 
 ├── code/
-│ ├── macro_regression_workflow.py
-│ └── diagnostic_workflow.py
+│   ├── macro_regression_workflow.py
+│   └── diagnostic_workflow.py
 │
 ├── outputs/
-│ ├── tables/
-│ └── figures/
+│   ├── tables/
+│   └── figures/
 │
 ├── README.md
 └── requirements.txt
