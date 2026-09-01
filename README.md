@@ -44,6 +44,10 @@ The workflow generates:
 - Residual analysis plots
 
 ## Repository Structure
+
+The repository will be organized as follows:
+
+
 macro-data-analysis-python/
 
 ├── code/
