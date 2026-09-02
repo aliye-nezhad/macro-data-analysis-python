@@ -31,10 +31,13 @@ The code requires at least 30 complete observations after cleaning.
 5. removes observations with missing values across the three series; and
 6. sorts observations chronologically.
 
-The cleaned analysis sample is represented in
-`outputs/fitted_values.csv`, together with fitted industrial production and
-baseline residuals. Summary statistics and correlations are stored in
-`outputs/descriptive_statistics.csv` and `outputs/correlation_matrix.csv`.
+The observation dates and industrial-production values used in the regression
+are included in `outputs/tables/fitted_values.csv`, together with fitted values
+and baseline residuals. The complete cleaned three-series data set is not
+written to disk; it is retrieved and prepared in memory whenever the workflow
+runs. Summary statistics and correlations are stored in
+`outputs/tables/descriptive_statistics.csv` and
+`outputs/tables/correlation_matrix.csv`.
 
 ## Reproducibility Note
 
