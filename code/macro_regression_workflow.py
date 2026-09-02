@@ -22,6 +22,8 @@ FRED_SERIES: tuple[str, ...] = ("INDPRO", "FEDFUNDS", "UNRATE")
 START_DATE = "1990-01-01"
 END_DATE: str | None = None
 OUTPUT_DIR = Path("outputs")
+FIGURE_DIR = OUTPUT_DIR / "figures"
+TABLE_DIR = OUTPUT_DIR / "tables"
 FORMULA = "INDPRO ~ FEDFUNDS + UNRATE"
 MIN_OBSERVATIONS = 30
 
@@ -127,7 +129,7 @@ def build_fitted_values(
 def save_summary_tables(
     data: pd.DataFrame,
     model: RegressionResultsWrapper,
-    output_dir: Path = OUTPUT_DIR,
+    output_dir: Path = TABLE_DIR,
 ) -> None:
     """Save descriptive statistics, correlations, and regression results."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -142,7 +144,7 @@ def save_summary_tables(
 
 def save_time_series_plot(
     data: pd.DataFrame,
-    output_dir: Path = OUTPUT_DIR,
+    output_dir: Path = FIGURE_DIR,
 ) -> None:
     """Plot the three macroeconomic variables over time."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -160,7 +162,7 @@ def save_time_series_plot(
 
 def save_actual_vs_fitted_plot(
     fitted_values: pd.DataFrame,
-    output_dir: Path = OUTPUT_DIR,
+    output_dir: Path = FIGURE_DIR,
 ) -> None:
     """Plot actual and fitted industrial production."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -190,7 +192,7 @@ def save_actual_vs_fitted_plot(
 
 def save_residual_plot(
     fitted_values: pd.DataFrame,
-    output_dir: Path = OUTPUT_DIR,
+    output_dir: Path = FIGURE_DIR,
 ) -> None:
     """Plot baseline regression residuals."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -209,19 +211,23 @@ def save_residual_plot(
 
 def run_workflow(output_dir: Path = OUTPUT_DIR) -> RegressionResultsWrapper:
     """Run the complete baseline regression workflow."""
+    table_dir = output_dir / "tables"
+    figure_dir = output_dir / "figures"
+
     raw_data = fetch_fred_data()
     data = prepare_macro_data(raw_data)
     model = estimate_baseline_model(data)
     fitted_values = build_fitted_values(data, model)
 
-    save_summary_tables(data, model, output_dir)
-    save_time_series_plot(data, output_dir)
-    save_actual_vs_fitted_plot(fitted_values, output_dir)
-    save_residual_plot(fitted_values, output_dir)
+    save_summary_tables(data, model, table_dir)
+    save_time_series_plot(data, figure_dir)
+    save_actual_vs_fitted_plot(fitted_values, figure_dir)
+    save_residual_plot(fitted_values, figure_dir)
 
     LOGGER.info("Observations used: %s", len(data))
     LOGGER.info("Adjusted R-squared: %.4f", model.rsquared_adj)
-    LOGGER.info("Outputs saved in: %s", output_dir.resolve())
+    LOGGER.info("Tables saved in: %s", table_dir.resolve())
+    LOGGER.info("Figures saved in: %s", figure_dir.resolve())
 
     return model
 
