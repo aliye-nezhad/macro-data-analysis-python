@@ -1,5 +1,4 @@
-pandas
-numpy
-matplotlib
-statsmodels
-pandas-datareader
+matplotlib>=3.8,<4
+pandas>=2.0,<4
+pandas-datareader>=0.10,<0.12
+statsmodels>=0.14,<0.16
