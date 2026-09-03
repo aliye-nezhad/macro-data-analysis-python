@@ -56,7 +56,7 @@ The workflow performs:
 ## Repository Structure
 
 ```text
-macro-data-analysis-python/
+us-macro-regression-python/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
