@@ -171,3 +171,7 @@ available data, future runs may differ slightly from the committed outputs.
 ## Author
 
 Aliye Nezhad
+
+## License
+
+The code and documentation are released under the MIT License. No separate license is asserted over the historical input workbook.
